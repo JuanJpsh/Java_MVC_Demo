@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Iniciar sesión</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+</head>
+
+<body class="text-bg-secondary m-0 vh-100 row justify-content-center align-items-center">
+    <div class="card text-bg-dark" style="width: 25rem;">
+        <div class="card-body text-center">
+            <h2 class="card-title">Inicio sesion</h2>
+            <form class="row g-3 needs-validation" th:action="@{/iniciarSesion}" th:object="${usuarioLogueado}" method="POST"
+                novalidate>
+                <div class="col-md-12">
+                    <label for="usuario" class="form-label">Usuario:</label>
+                    <input type="text" name="usuario" th:field="*{usuario}" class="form-control" required>
+                    <div class="invalid-feedback">El campo de usuario debe estar completo.</div>
+                </div>
+                <div class="col-md-12">
+                    <label for="contrasenia" class="form-label">Contraseña:</label>
+                    <input type="text" name="clave" th:field="*{clave}" class="form-control" required>
+                    <div class="invalid-feedback">El campo de contraseña debe estar completo.</div>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit">Iniciar sesión</button>
+                </div>
+            </form>
+            <div class="col-12 mt-4">
+                <a th:href="@{/HOME}" class="btn btn-secondary btn-sm mb-3" aria-current="page">Cancelar</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
